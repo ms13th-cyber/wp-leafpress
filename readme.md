@@ -2,202 +2,77 @@
 
 A modern Leaflet-powered WordPress mapping plugin built for dynamic location management, category-based filtering, and scalable interactive maps.
 
-動的な位置情報管理、カテゴリフィルター、大規模マップ表示のために設計された、LeafletベースのWordPress地図プラグインです。
-
-WP LeafPress transforms WordPress into a lightweight geographic CMS by combining Leaflet, Custom Post Types, REST API, taxonomy-driven filtering, and marker clustering into a flexible mapping platform.
-
-Leaflet、カスタム投稿タイプ、REST API、タクソノミー連動フィルター、マーカークラスタリングを組み合わせ、WordPressを軽量な地理情報CMSへ変換します。
+動的な位置情報管理、カテゴリフィルター、大規模マップ表示のために設計された、LeafletベースのWordPress地図プラグインです。Leaflet、カスタム投稿タイプ、REST API、タクソノミー連動フィルター、マーカークラスタリングを組み合わせ、WordPressを軽量な地理情報CMSへと変換します。
 
 ---
 
-# Key Features / 主な機能
+## Key Features
 
-- **Leaflet Integration**
-  Fast and lightweight OpenStreetMap-powered maps powered by Leaflet.js.
-  Leaflet.js による高速・軽量なOpenStreetMapベースの地図表示。
+- **Leaflet Integration**: Fast and lightweight OpenStreetMap-powered maps powered by Leaflet.js.
+- **Interactive Admin Editor**: Drag-and-drop marker positioning with automatic latitude/longitude synchronization within the WordPress admin panel.
+- **Taxonomy-Based Management**: Organize markers using WordPress taxonomies instead of static text fields, with dynamic custom colors assigned directly from the taxonomy editor.
+- **Advanced Frontend UI**: Features interactive overlay filters, marker clustering for high-performance large-scale maps, and responsive popup cards (featured images, descriptions, and CTA buttons).
+- **API-Driven Architecture**: Marker data is delivered through a custom REST API endpoint, ensuring a modular and modern decoupling of data.
+- **Extensible Foundation**: Designed for future expansion including GeoJSON, CSV import, nearby search, and routing support.
 
-- **Custom Marker Management**
-  Create and manage map markers directly from the WordPress admin panel.
-  WordPress管理画面からマーカーを作成・管理可能。
+## 主な機能（日本語）
 
-- **Interactive Admin Map Editor**
-  Drag-and-drop marker positioning with automatic latitude/longitude synchronization.
-  ドラッグ＆ドロップで位置調整できる管理画面マップエディタ。
-
-- **Taxonomy-Based Categories**
-  Organize markers using WordPress taxonomies instead of static text fields.
-  WordPressタクソノミーによる柔軟なカテゴリ管理。
-
-- **Dynamic Category Colors**
-  Assign custom colors to categories directly from the taxonomy editor.
-  カテゴリごとに色を設定可能。
-
-- **Frontend Category Filters**
-  Interactive overlay filters displayed directly on the map UI.
-  地図上に重ねて表示されるカテゴリフィルターUI。
-
-- **Marker Clustering**
-  Automatically groups nearby markers for high-performance large-scale maps.
-  大量マーカー対応のクラスタリング機能。
-
-- **REST API Powered**
-  Marker data is delivered through a custom REST API endpoint.
-  独自REST API経由でマーカーデータを提供。
-
-- **Rich Marker Popups**
-  - Featured image support
-  - Description support
-  - Category display
-  - External CTA button support
-
-  リッチなポップアップ表示：
-  - アイキャッチ画像
-  - 説明文
-  - カテゴリ表示
-  - 外部リンクボタン
-
-- **Responsive UI**
-  Mobile-friendly map and popup layout.
-  モバイル対応レスポンシブUI。
-
-- **Extensible Architecture**
-  Designed for future expansion including GeoJSON, CSV import, nearby search, and routing support.
-  GeoJSON、CSV、近隣検索、ルート表示など将来的な拡張を想定した構造。
+- **Leafletによる高速表示**: Leaflet.jsを採用し、OpenStreetMapベースの軽量で高速な地図表示を実現。
+- **直感的な管理画面マップエディタ**: ドラッグ＆ドロップで座標を自動同期できる位置調整機能を搭載。
+- **柔軟なカテゴリ管理**: WordPress標準のタクソノミーを利用。カテゴリごとにカスタムカラーを設定し、地図上に反映可能です。
+- **高度なフロントエンドUI**: 地図上の動的フィルタリング、大量の地点を効率的に表示するクラスタリング、画像・ボタン付きのレスポンシブポップアップに対応。
+- **独自REST APIの提供**: 外部連携や拡張を容易にする専用のAPIエンドポイントを介してデータを提供。
+- **将来の拡張性**: GeoJSONやCSVインポート、近隣検索、ルート表示など、地理情報システムとしての拡張を見越したモジュール構成。
 
 ---
 
-# Features Overview / 機能概要
+## Features Overview / 機能概要
 
-## Admin Features / 管理画面機能
+### Admin Features / 管理画面機能
+- Custom Post Type marker management / カスタム投稿タイプによるマーカー管理
+- Drag-and-drop coordinate editing / ドラッグによる直感的な座標編集
+- Category color management / タクソノミーによるカテゴリカラー管理
 
-- Custom Post Type marker management
-  カスタム投稿タイプによるマーカー管理
-
-- Drag-and-drop coordinate editing
-  ドラッグによる座標編集
-
-- Interactive admin Leaflet map
-  管理画面Leafletマップ
-
-- Category color management
-  カテゴリカラー管理
-
-- Taxonomy-based marker organization
-  タクソノミーによる分類管理
+### Frontend Features / フロント機能
+- Dynamic category filters & Marker clustering / 動的フィルタリングとクラスタリング
+- Responsive popup cards / 画像・説明文・外部リンク対応のポップアップ
+- Auto fitBounds support / 全地点が収まる自動ズーム調整機能
 
 ---
 
-## Frontend Features / フロント機能
+## Installation / インストール
 
-- Interactive Leaflet map
-  インタラクティブ地図表示
-
-- Dynamic category filters
-  動的カテゴリフィルター
-
-- Marker clustering
-  マーカークラスタリング
-
-- Responsive popup cards
-  レスポンシブポップアップ
-
-- Category color synchronization
-  カテゴリ色同期
-
-- Auto fitBounds support
-  自動fitBounds対応
+1. Upload the plugin folder to your `/wp-content/plugins/` directory.
+   (`wp-content/plugins/` ディレクトリにプラグインフォルダをアップロードします)
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+   (管理画面の「プラグイン」メニューから有効化してください)
+3. Add the shortcode `[leafpress]` to any page or post.
+   (固定ページや投稿にショートコード `[leafpress]` を追加します)
+4. Create markers via **LeafPress Markers** and set category colors via **Categories**.
+   (「LeafPress Markers」から地点を登録し、「Categories」から色の設定を行ってください)
 
 ---
 
-## Developer Features / 開発者向け機能
+## Technical Details
 
-- Custom REST API endpoint
-  独自REST API
+### REST API Endpoint
+`/wp-json/leafpress/v1/markers`
 
-- Modular architecture
-  モジュール構成
-
-- Extensible taxonomy metadata system
-  拡張可能なtaxonomy meta
-
-- Lightweight frontend rendering
-  軽量フロント描画
-
-- OpenStreetMap ecosystem ready
-  OpenStreetMap系拡張に対応
+### Technology Stack
+- WordPress (Custom Post Types, Taxonomies, REST API)
+- Leaflet.js / Leaflet.markercluster
+- OpenStreetMap
 
 ---
 
-# Installation / インストール
+## Roadmap / 今後の予定
+- [ ] GeoJSON & CSV Import/Export
+- [ ] OpenStreetMap Overpass API integration
+- [ ] Nearby search & Current location support
+- [ ] Route rendering & Heatmap layers
+- [ ] Advanced filter UI & Geocoder integration
 
-1. Upload the plugin folder to:
-
-/wp-content/plugins/
-プラグインフォルダをアップロード。
-
-2. Activate the plugin through the WordPress admin panel.
-
-WordPress管理画面から有効化。
-
-3. Add the shortcode to any page or post:
-[leafpress]
-
-ショートコードを固定ページや投稿へ追加。
-
-4. Create markers from: LeafPress Markers
-
-管理画面からマーカーを登録。
-
-5.Add categories and colors from:Categories
-
-カテゴリとカラーを設定。
-
-# REST API Endpoint
-/wp-json/leafpress/v1/markers
-
-Example response / レスポンス例:
-
-[
-  {
-    "title": "Tokyo Station",
-    "lat": "35.681236",
-    "lng": "139.767125",
-    "categories": [
-      {
-        "slug": "station",
-        "name": "Station",
-        "color": "#3498db"
-      }
-    ],
-    "description": "Major transportation hub in Tokyo.",
-    "link": "https://example.com",
-    "image": "https://example.com/image.jpg"
-  }
-]
-
-# Roadmap / 今後の予定
-GeoJSON import/export
-CSV import
-OpenStreetMap Overpass API integration
-Nearby search
-Current location support
-Route rendering
-Marker drawing tools
-Heatmap layers
-Popup gallery support
-Marker animations
-Advanced filter UI
-Geocoder integration
-Technology Stack / 使用技術
-WordPress
-Leaflet.js
-Leaflet.markercluster
-OpenStreetMap
-WordPress REST API
-License / ライセンス
-
-# MIT License
-
-Developer / 開発者
-Author: masato shibuya (Image-box Co., Ltd.)
-GitHub: ms13th-cyber GitHub
+## Developer Info / 開発者情報
+- **Author**: masato shibuya (Image-box Co., Ltd.)
+- **GitHub**: [https://github.com/ms13th-cyber/](https://github.com/ms13th-cyber/)
+- **License**: MIT License
