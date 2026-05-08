@@ -38,10 +38,10 @@ WP LeafPress は、WordPress を柔軟な地図CMSとして活用するための
    `[leafpress]`
 
 4. 管理画面からマーカーを登録します。
-   `LeafPress Markers`
+   `LeafPressマーカー`
 
 5. カテゴリとカラーを設定します。
-   `Categories`
+   `カテゴリ一覧`
 
 == Usage ==
 
