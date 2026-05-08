@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+
+#leafpress-map{
+	width: 100%;
+	height: 500px;
+	border-radius: 0;
+	overflow: hidden;
+	letter-spacing: 0;
+}
+.leaflet-control-zoom a {
+	padding: 0;
+	border-radius: 0 !important;
+}
+.leaflet-control-zoom a:hover,
+.leaflet-control-zoom a:focus {
+	color: #999999;
+}
+.leaflet-control-attribution a {
+	padding: 0;
+	background: transparent;
+	color: #000000;
+}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	color: #000000;
+	background: transparent;
+	text-decoration: underline;
+}
+
+
+#leafpress-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 15px;
+}
+.leafpress-filter-item {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	padding: 3px 5px;
+	border: 1px solid #ddd;
+	border-radius: 0;
+	background: #fff;
+	font-size: 11px;
+	cursor: pointer;
+}
+.leafpress-filter-color {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+.leafpress-filter-wrap {
+	background: transparent;
+	padding: 5px;
+	border-radius: 0;
+	box-shadow: 0 4px 12px rgba(0,0,0,.15);
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 150px;
+}
+.leafpress-filter-wrap label {
+	margin: 0;
+}
+
+
+.leafpress-popup {
+	width: 240px;
+}
+.leafpress-popup-image {
+	margin-bottom: 10px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.leafpress-popup-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.leafpress-popup-category {
+	display: inline-block;
+	padding: 4px 8px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: bold;
+	background: #f3f3f3;
+	margin-bottom: 8px;
+}
+.leafpress-popup-title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	line-height: 1.4;
+}
+.leafpress-popup-description {
+	font-size: 13px;
+	line-height: 1.6;
+	color: #555;
+	margin-bottom: 12px;
+}
+.leafpress-popup-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 14px;
+	border-radius: 8px;
+	background: #222;
+	color: #fff !important;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+
+#leafpress-admin-map {
+	width: 100%;
+	height: 400px;
+	margin-top: 20px;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
