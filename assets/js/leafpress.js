@@ -13,8 +13,44 @@ window.addEventListener('load', async () => {
 
 	const clusterGroup = L.markerClusterGroup();
 
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; OpenStreetMap contributors'
+	/**
+	 * Base maps
+	 */
+	const osm = L.tileLayer(
+		'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		{
+			attribution: '&copy; OpenStreetMap contributors'
+		}
+	);
+	const esri = L.tileLayer(
+		'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+		{
+			attribution: 'Tiles &copy; Esri'
+		}
+	);
+	const gsi = L.tileLayer(
+		'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
+		{
+			attribution: '&copy; 国土地理院'
+		}
+	);
+
+	/**
+	 * Default layer
+	 */
+	osm.addTo(map);
+
+	/**
+	 * Layer control
+	 */
+	const baseMaps = {
+		'OpenStreetMap': osm,
+		'Satellite': esri,
+		'GSI': gsi
+	};
+
+	L.control.layers(baseMaps, null, {
+		position: 'bottomright'
 	}).addTo(map);
 
 	try {
