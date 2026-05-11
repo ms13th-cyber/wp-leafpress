@@ -46,8 +46,8 @@ A modern Leaflet-powered WordPress mapping plugin built for dynamic location man
    (`wp-content/plugins/` ディレクトリにプラグインフォルダをアップロードします)
 2. Activate the plugin through the 'Plugins' menu in WordPress.
    (管理画面の「プラグイン」メニューから有効化してください)
-3. Add the shortcode `[leafpress]` to any page or post.
-   (固定ページや投稿にショートコード `[leafpress]` を追加します)
+3. Add the shortcode `[leafpress_map]` to any page or post.
+   (固定ページや投稿にショートコード `[leafpress_map]` を追加します)
 4. Create markers via **LeafPress Markers** and set category colors via **Categories**.
    (「LeafPress Markers」から地点を登録し、「Categories」から色の設定を行ってください)
 
