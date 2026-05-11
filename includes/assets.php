@@ -64,6 +64,38 @@ function leafpress_enqueue_assets() {
 		]
 	);
 
+	$map_height = get_option('leafpress_map_height', 0);
+
+	if (
+		(int)$map_height < 320 &&
+		(int)$map_height !== 0
+	) {
+		$map_height = 320;
+	}
+
+	if ((int)$map_height === 0) {
+
+		$height_css = '100vh';
+
+	} else {
+
+		$height_css = absint($map_height) . 'px';
+
+	}
+
+	wp_register_style('leafpress-inline', false);
+
+	wp_enqueue_style('leafpress-inline');
+
+	wp_add_inline_style(
+		'leafpress-inline',
+		"
+		#leafpress-map{
+			height: {$height_css};
+		}
+		"
+	);
+
 }
 
 add_action('wp_enqueue_scripts', 'leafpress_enqueue_assets');
