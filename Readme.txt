@@ -35,13 +35,13 @@ WP LeafPress は、WordPress を柔軟な地図CMSとして活用するための
 2. WordPress管理画面の「プラグイン」から有効化します。
 
 3. 固定ページまたは投稿へショートコードを追加します。
-   `[leafpress]`
+   `[leafpress_map]`
 
 4. 管理画面からマーカーを登録します。
-   `LeafPressマーカー`
+   `LeafPress Markers`
 
 5. カテゴリとカラーを設定します。
-   `カテゴリ一覧`
+   `Categories`
 
 == Usage ==
 

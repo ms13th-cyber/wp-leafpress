@@ -6,7 +6,7 @@ function leafpress_register_post_type() {
 
 	register_post_type('leafpress_marker', [
 		'labels' => [
-			'name' => 'LeafPressマーカー',
+			'name' => 'LeafPress Markers',
 			'singular_name' => 'Marker',
 		],
 		'public' => true,
@@ -20,7 +20,7 @@ function leafpress_register_post_type() {
 		'leafpress_marker',
 		[
 			'labels' => [
-				'name' => 'カテゴリ一覧',
+				'name' => 'Categories',
 				'singular_name' => 'Category',
 			],
 			'public' => true,
