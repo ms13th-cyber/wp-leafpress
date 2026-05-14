@@ -71,6 +71,28 @@
 }
 
 
+.leafpress-location-control {
+	box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+
+.leafpress-location-control button {
+	border: none;
+	background: #fff;
+	cursor: pointer;
+	padding: 5px 10px;
+	font-size: 14px;
+}
+
+.leafpress-current-dot {
+	width: 18px;
+	height: 18px;
+	background: #303030;
+	border-radius: 50%;
+	border: 3px solid #fff;
+	box-shadow: 0 0 10px rgba(10,132,255,.5);
+}
+
+
 .leafpress-popup {
 	width: 240px;
 }

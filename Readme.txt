@@ -4,7 +4,7 @@ Tags: leaflet, map, openstreetmap, geolocation, marker, clustering, taxonomy, re
 Requires at least: 5.0
 Tested up to: 6.9.4
 Requires PHP: 8.3.23
-Stable tag: 0.2.2
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,10 @@ WP LeafPress は、WordPress を柔軟な地図CMSとして活用するための
 * **クラスタリング**: 地点が密集している場合、自動で数字のバブルに集約されます。ズームすることで個別のマーカーに分割されます。
 
 == Changelog ==
+
+= 0.3.0 =
+* マーカーのクラスター表示を切り替えられるように修正。
+* 現在地取得の実装。
 
 = 0.2.2 =
 * ショートコードの取り扱いに関して修正。

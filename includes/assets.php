@@ -61,6 +61,7 @@ function leafpress_enqueue_assets() {
 		'leafpressData',
 		[
 			'restUrl' => rest_url('leafpress/v1/markers'),
+			'enableCluster' => (bool)get_option('leafpress_enable_cluster', true),
 		]
 	);
 
@@ -97,5 +98,4 @@ function leafpress_enqueue_assets() {
 	);
 
 }
-
 add_action('wp_enqueue_scripts', 'leafpress_enqueue_assets');

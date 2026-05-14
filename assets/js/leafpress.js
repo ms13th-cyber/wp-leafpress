@@ -11,7 +11,9 @@ window.addEventListener('load', async () => {
 
 	const map = L.map('leafpress-map').setView([35.681236, 139.767125], 5);
 
-	const clusterGroup = L.markerClusterGroup();
+	const clusterGroup = leafpressData.enableCluster
+		? L.markerClusterGroup()
+		: L.layerGroup();
 
 	/**
 	 * Base maps
@@ -221,6 +223,73 @@ window.addEventListener('load', async () => {
 		};
 
 		filterControl.addTo(map);
+
+		const locationControl = L.control({
+			position: 'topright'
+		});
+
+		locationControl.onAdd = function() {
+
+			const div = L.DomUtil.create(
+				'div',
+				'leafpress-location-control'
+			);
+
+			div.innerHTML = `
+				<button type="button">
+					📍 Current Location
+				</button>
+			`;
+
+			div.querySelector('button').addEventListener('click', () => {
+
+				if (!navigator.geolocation) {
+					alert('Geolocation is not supported.');
+					return;
+				}
+
+				navigator.geolocation.getCurrentPosition(
+
+					position => {
+
+						const lat = position.coords.latitude;
+						const lng = position.coords.longitude;
+
+						map.flyTo([lat, lng], 15);
+
+						L.marker([lat, lng], {
+							icon: L.divIcon({
+								className: 'leafpress-current-location',
+								html: `
+									<div class="leafpress-current-dot"></div>
+								`,
+								iconSize: [20, 20],
+								iconAnchor: [10, 10]
+							})
+						})
+						.addTo(map)
+						.bindPopup('Current Location')
+						.openPopup();
+
+					},
+
+					error => {
+
+						console.error(error);
+
+						alert('Location access denied.');
+
+					}
+
+				);
+
+			});
+
+			return div;
+
+		};
+
+		locationControl.addTo(map);
 
 		const filterElement = document.querySelector('.leafpress-filter-wrap');
 

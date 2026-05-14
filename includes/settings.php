@@ -33,6 +33,15 @@ function leafpress_register_settings() {
 			'default' => 0,
 		]
 	);
+	register_setting(
+		'leafpress_settings_group',
+		'leafpress_enable_cluster',
+		[
+			'type' => 'boolean',
+			'sanitize_callback' => 'rest_sanitize_boolean',
+			'default' => true,
+		]
+	);
 
 }
 
@@ -58,13 +67,10 @@ function leafpress_settings_page() {
 			?>
 
 			<table class="form-table">
-
 				<tr>
-
 					<th scope="row">
 						Map Height
 					</th>
-
 					<td>
 
 						<input
@@ -81,16 +87,26 @@ function leafpress_settings_page() {
 						</p>
 
 					</td>
-
 				</tr>
-
+				<tr>
+					<th scope="row">
+						Enable Marker Clustering
+					</th>
+					<td>
+						<label>
+							<input
+								type="checkbox"
+								name="leafpress_enable_cluster"
+								value="1"
+								<?php checked(get_option('leafpress_enable_cluster', true)); ?>
+							>
+							Enable cluster grouping
+						</label>
+					</td>
+				</tr>
 			</table>
-
 			<?php submit_button(); ?>
-
 		</form>
-
 	</div>
-
 	<?php
 }
