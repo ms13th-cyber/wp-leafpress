@@ -9,46 +9,70 @@ window.addEventListener('load', async () => {
 		mapElement.innerHTML = '';
 	}
 
-	const map = L.map('leafpress-map').setView([35.681236, 139.767125], 5);
+	const settings = JSON.parse(
+		mapElement.dataset.settings || '{}'
+	);
 
-	const clusterGroup = leafpressData.enableCluster
-		? L.markerClusterGroup()
-		: L.layerGroup();
+	const enableCluster = settings.cluster !== ''
+		? settings.cluster === 'true'
+		: leafpressData.enableCluster;
+
+	const defaultLat = settings.lat || 35.681236;
+	const defaultLng = settings.lng || 139.767125;
+	const defaultZoom = settings.zoom || 5;
+
+	const map = L.map('leafpress-map').setView(
+		[defaultLat, defaultLng],
+		defaultZoom
+	);
+
+	const clusterGroup = enableCluster
+		? L.markerClusterGroup({
+		spiderfyOnMaxZoom: true,
+		showCoverageOnHover: false,
+		zoomToBoundsOnClick: true,
+		animate: true,
+		animateAddingMarkers: true,
+	})
+	: L.layerGroup();
 
 	/**
 	 * Base maps
 	 */
-	const osm = L.tileLayer(
-		'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-		{
-			attribution: '&copy; OpenStreetMap contributors'
-		}
-	);
-	const esri = L.tileLayer(
-		'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-		{
-			attribution: 'Tiles &copy; Esri'
-		}
-	);
-	const gsi = L.tileLayer(
-		'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
-		{
-			attribution: '&copy; 国土地理院'
-		}
-	);
+	const tileLayers = {
 
-	/**
-	 * Default layer
-	 */
-	osm.addTo(map);
+		osm: L.tileLayer(
+			'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			{
+				attribution: '&copy; OpenStreetMap contributors'
+			}
+		),
+
+		gsi: L.tileLayer(
+			'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
+			{
+				attribution: '国土地理院'
+			}
+		),
+
+		satellite: L.tileLayer(
+			'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+			{
+				attribution: '国土地理院 航空写真'
+			}
+		)
+
+	};
+	const selectedTiles = settings.tiles || 'osm';
+	(tileLayers[selectedTiles] || tileLayers.osm).addTo(map);
 
 	/**
 	 * Layer control
 	 */
 	const baseMaps = {
-		'OpenStreetMap': osm,
-		'Satellite': esri,
-		'GSI': gsi
+		'OpenStreetMap': tileLayers.osm,
+		'Satellite': tileLayers.satellite,
+		'GSI': tileLayers.gsi
 	};
 
 	L.control.layers(baseMaps, null, {
@@ -71,6 +95,18 @@ window.addEventListener('load', async () => {
 		 * Marker create
 		 */
 		markers.forEach(marker => {
+
+			if (
+				settings.category &&
+				!(
+					marker.categories &&
+					marker.categories.some(
+						cat => cat.slug === settings.category
+					)
+				)
+			) {
+				return;
+			}
 
 			if (!marker.lat || !marker.lng) return;
 
