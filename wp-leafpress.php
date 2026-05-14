@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP LeafPress
 Description: Leaflet.js と OpenStreetMap を利用した、軽量かつ拡張性の高い WordPress 地図プラグインです。
-Version: 0.2.1
+Version: 0.2.2
 Tested up to: 6.9.4
 Requires PHP: 8.3.23
 Author: masato shibuya(Image-box Co., Ltd.)
