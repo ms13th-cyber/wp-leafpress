@@ -2,7 +2,9 @@
 
 if (!defined('ABSPATH')) exit;
 
-function leafpress_map_shortcode() {
+function leafpress_shortcode() {
+
+	leafpress_enqueue_assets();
 
 	ob_start();
 	?>
@@ -13,4 +15,4 @@ function leafpress_map_shortcode() {
 	return ob_get_clean();
 }
 
-add_shortcode('leafpress_map', 'leafpress_map_shortcode');
+add_shortcode('leafpress', 'leafpress_shortcode');
